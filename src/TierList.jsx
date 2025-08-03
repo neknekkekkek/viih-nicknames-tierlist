@@ -19,14 +19,12 @@ const allNicknames = [
 export default function TierList() {
   const [tiers, setTiers] = useState(initialTiers);
   const [unassigned, setUnassigned] = useState(allNicknames);
-  const [activeNick, setActiveNick] = useState(null); // какое слово сейчас "раскрыто"
+  const [activeNick, setActiveNick] = useState(null); // активное слово (для показа Back)
 
   const moveToTier = (nickname, tierName) => {
     setTiers(prev => {
       const newTiers = { ...prev };
-      for (let t in newTiers) {
-        newTiers[t] = newTiers[t].filter(n => n !== nickname);
-      }
+      for (let t in newTiers) newTiers[t] = newTiers[t].filter(n => n !== nickname);
       newTiers[tierName].push(nickname);
       return newTiers;
     });
@@ -44,22 +42,30 @@ export default function TierList() {
     setActiveNick(null);
   };
 
-  // тап по пустому месту закрывает плашку
   const clearActive = () => setActiveNick(null);
 
   return (
     <div className="container" onClick={clearActive}>
-      <h1>💬 Viih Nickname Tier List</h1>
+      {/* 1) Заголовок */}
+      <h1>❤️ Vitória Tier List</h1>
 
+      {/* 3) Подсказка на английском */}
+      <div className="card hint" onClick={e => e.stopPropagation()}>
+        <p><strong>Tip:</strong> To return a word to the Unsorted list, tap the word and then press <b>Back</b>. The tier list is at the bottom of the page.</p>
+      </div>
+
+      {/* Блок с неотсортированными */}
       {unassigned.length > 0 && (
         <div className="card" onClick={e => e.stopPropagation()}>
-          <h2>Unsorted Nicknames</h2>
+          {/* 2) Заголовок + счётчик справа */}
+          <div className="headerRow">
+            <h2>Unsorted Nicknames</h2>
+            <span className="countBadge">{unassigned.length}</span>
+          </div>
+
           <div>
             {unassigned.map(nick => (
-              <div
-                key={nick}
-                className="pill"
-              >
+              <div key={nick} className="pill">
                 {nick}
                 <select
                   onChange={e => moveToTier(nick, e.target.value)}
@@ -76,6 +82,7 @@ export default function TierList() {
         </div>
       )}
 
+      {/* Тиры */}
       {Object.entries(tiers).map(([tierName, nicknames]) => (
         <div key={tierName} className="card" onClick={e => e.stopPropagation()}>
           <h2 className="sticky">{tierName}</h2>
@@ -87,7 +94,7 @@ export default function TierList() {
                 role="button"
                 tabIndex={0}
                 onClick={e => {
-                  e.stopPropagation(); // чтобы не сработал clearActive у контейнера
+                  e.stopPropagation();
                   setActiveNick(prev => (prev === nick ? null : nick));
                 }}
               >
@@ -96,7 +103,7 @@ export default function TierList() {
                   <button
                     className="action-back"
                     onClick={(e) => {
-                      e.stopPropagation(); // не закрывать сразу по клику на контейнер
+                      e.stopPropagation();
                       moveBackToUnsorted(nick, tierName);
                     }}
                     aria-label="Back to Unsorted"
