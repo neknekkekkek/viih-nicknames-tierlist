@@ -17,3 +17,18 @@ h1,h2 { margin:0 0 8px 0; }
   select { width:100%; margin-top:6px; }       /* селект под «пилюлей», удобнее жать */
   .sticky { position:sticky; top:0; background:#fff; padding-top:8px; z-index:5; }
 }
+/* Плашка Back, появляется по тапу */
+.pill { position: relative; }
+.action-back {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 6px 10px;
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  cursor: pointer;
+}
+.action-back:active { transform: translateY(-48%); }
