@@ -19,6 +19,7 @@ const allNicknames = [
 export default function TierList() {
   const [tiers, setTiers] = useState(initialTiers);
   const [unassigned, setUnassigned] = useState(allNicknames);
+  const [activeNick, setActiveNick] = useState(null); // какое слово сейчас "раскрыто"
 
   const moveToTier = (nickname, tierName) => {
     setTiers(prev => {
@@ -30,18 +31,35 @@ export default function TierList() {
       return newTiers;
     });
     setUnassigned(prev => prev.filter(n => n !== nickname));
+    setActiveNick(null);
   };
 
+  const moveBackToUnsorted = (nickname, fromTier) => {
+    setTiers(prev => {
+      const newTiers = { ...prev };
+      newTiers[fromTier] = newTiers[fromTier].filter(n => n !== nickname);
+      return newTiers;
+    });
+    setUnassigned(prev => (prev.includes(nickname) ? prev : [...prev, nickname]));
+    setActiveNick(null);
+  };
+
+  // тап по пустому месту закрывает плашку
+  const clearActive = () => setActiveNick(null);
+
   return (
-    <div className="container">
+    <div className="container" onClick={clearActive}>
       <h1>💬 Viih Nickname Tier List</h1>
 
       {unassigned.length > 0 && (
-        <div className="card">
+        <div className="card" onClick={e => e.stopPropagation()}>
           <h2>Unsorted Nicknames</h2>
           <div>
             {unassigned.map(nick => (
-              <div key={nick} className="pill">
+              <div
+                key={nick}
+                className="pill"
+              >
                 {nick}
                 <select
                   onChange={e => moveToTier(nick, e.target.value)}
@@ -59,12 +77,34 @@ export default function TierList() {
       )}
 
       {Object.entries(tiers).map(([tierName, nicknames]) => (
-        <div key={tierName} className="card">
+        <div key={tierName} className="card" onClick={e => e.stopPropagation()}>
           <h2 className="sticky">{tierName}</h2>
           <div>
             {nicknames.map(nick => (
-              <div key={nick} className="pill">
+              <div
+                key={nick}
+                className="pill"
+                role="button"
+                tabIndex={0}
+                onClick={e => {
+                  e.stopPropagation(); // чтобы не сработал clearActive у контейнера
+                  setActiveNick(prev => (prev === nick ? null : nick));
+                }}
+              >
                 {nick}
+                {activeNick === nick && (
+                  <button
+                    className="action-back"
+                    onClick={(e) => {
+                      e.stopPropagation(); // не закрывать сразу по клику на контейнер
+                      moveBackToUnsorted(nick, tierName);
+                    }}
+                    aria-label="Back to Unsorted"
+                    title="Back to Unsorted"
+                  >
+                    Back
+                  </button>
+                )}
               </div>
             ))}
           </div>
