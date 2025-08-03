@@ -10,11 +10,10 @@ const initialTiers = {
 };
 
 const allNicknames = [
-  "My Strawberry", "Sweet Pea", "Sunshine", "Bunny", "Princess", "Meu docinho",
-  "Naughty Girl", "My Little Brat", "Tease Queen", "Hot Stuff", "Bossy Baby", "Photo Addict", "Right-Wing Cutie",
-  "Boobie Queen", "Peanut Baby", "Sleepy Burrito", "Procrastination Princess", "Pillow Fighter", "Monkey Mood",
-  "Curly Trouble", "Viih-tamin", "Curly from Ceará", "Snack Doctor", "Cutie", "Coraçãozinho",
-  "Dear", "Amore", "Faz-o-L Queen"
+  "Peanut Baby", "Curly Trouble", "Sunshine", "Right-Wing Cutie", "Amore", "Pillow Fighter", "Princess", "Dear", 
+  "Monkey Mood", "Meu docinho", "Boobie Queen", "Coraçãozinho", "Viih-tamin", "Photo Addict", "Hot Stuff", 
+  "Curly from Ceará", "Cutie", "Sleepy Burrito", "Naughty Girl", "My Strawberry", "Tease Queen", "Snack Doctor", 
+  "Bunny", "Procrastination Princess", "Sweet Pea", "Faz-o-L Queen", "My Little Brat", "Bossy Baby"
 ];
 
 export default function TierList() {
