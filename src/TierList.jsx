@@ -1,3 +1,4 @@
+// src/TierList.jsx
 import { useState } from 'react';
 
 const initialTiers = {
@@ -54,15 +55,15 @@ export default function TierList() {
         <p><strong>Tip:</strong> To return a word to the Unsorted list, tap the word and then press <b>Back</b>. The tier list is at the bottom of the page.</p>
       </div>
 
-      {/* Неотсортированные с единым заголовком и счётчиком в одной строке */}
+      {/* Неотсортированные: единый заголовок + счётчик в одну строку */}
       {unassigned.length > 0 && (
-        <div className="card" onClick={e => e.stopPropagation()}>
-          <h2>Unsorted Nicknames - {unassigned.length} {unassigned.length === 1 ? 'word' : 'words'}</h2>
+        <div className="card unsorted" onClick={e => e.stopPropagation()}>
+          <h2 className="oneLine">Unsorted Nicknames - {unassigned.length} {unassigned.length === 1 ? 'word' : 'words'}</h2>
 
           <div>
             {unassigned.map(nick => (
               <div key={nick} className="pill">
-                {nick}
+                <span className="word">{nick}</span>
                 <select
                   onChange={e => moveToTier(nick, e.target.value)}
                   defaultValue=""
