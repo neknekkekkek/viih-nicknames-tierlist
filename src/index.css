@@ -10,13 +10,16 @@ body {
 .pill { background:#eef5ff; border-radius:16px; padding:10px 12px; display:inline-flex; align-items:center; gap:8px; margin:4px; min-height:40px; position:relative; }
 h1,h2 { margin:0 0 8px 0; }
 
+/* одно строкой + авто-уменьшение шрифта */
+.oneLine { white-space: nowrap; word-break: keep-all; line-height:1.2; font-size: clamp(14px, 3.6vw, 22px); }
+
 /* Селект: одинаковая ширина у всех */
 select { font-size:16px; padding:8px; width:200px; } /* 16px, чтобы iOS не зумил */
 
 /* Липкий заголовок тира (удобно на мобиле) */
 .sticky { position:sticky; top:0; background:#fff; padding-top:8px; z-index:5; }
 
-/* Кнопка возврата, если используем внутри .pill (не плавающую) */
+/* Кнопка возврата (если используем внутри .pill) */
 .pill button {
   margin-left: 8px;
   padding: 6px 8px;
@@ -52,9 +55,12 @@ select { font-size:16px; padding:8px; width:200px; } /* 16px, чтобы iOS н�
 /* Плашка-подсказка */
 .hint p { margin:0; line-height:1.4; font-size:14px; }
 
+/* Синие полосы во всю ширину только в блоке Unsorted */
+.unsorted .pill { display:flex; justify-content:space-between; align-items:center; width:100%; }
+
 /* === Mobile tweaks === */
 @media (max-width:480px){
   .container { padding:12px; }
-  .pill { padding:12px 14px; min-height:44px; }   /* 44px — удобная зона тапа */
-  select { width:160px; }                          /* компактнее на телефоне */
+  .pill { padding:12px 14px; min-height:44px; }
+  select { width:160px; }
 }
