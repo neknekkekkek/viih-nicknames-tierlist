@@ -1,4 +1,4 @@
-/* Мобильный комфорт: крупные тапы, читаемый шрифт, прилипающие заголовки */
+/* === Base / Общие стили === */
 body {
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   background:#f4f4f4;
@@ -7,18 +7,27 @@ body {
 
 .container { padding:16px; max-width:800px; margin:0 auto; }
 .card { background:#fff; border-radius:16px; padding:16px; box-shadow:0 2px 10px rgba(0,0,0,.06); margin-bottom:12px; }
-.pill { background:#eef5ff; border-radius:16px; padding:10px 12px; display:inline-flex; align-items:center; gap:8px; margin:4px; min-height:40px; }
-select { font-size:16px; padding:8px; } /* >=16px — чтобы iOS не зумил */
+.pill { background:#eef5ff; border-radius:16px; padding:10px 12px; display:inline-flex; align-items:center; gap:8px; margin:4px; min-height:40px; position:relative; }
 h1,h2 { margin:0 0 8px 0; }
 
-@media (max-width:480px){
-  .container { padding:12px; }
-  .pill { padding:12px 14px; min-height:44px; } /* 44px — гайдлайн для тапа */
-  select { width:100%; margin-top:6px; }       /* селект под «пилюлей», удобнее жать */
-  .sticky { position:sticky; top:0; background:#fff; padding-top:8px; z-index:5; }
+/* Селект: одинаковая ширина у всех */
+select { font-size:16px; padding:8px; width:200px; } /* 16px, чтобы iOS не зумил */
+
+/* Липкий заголовок тира (удобно на мобиле) */
+.sticky { position:sticky; top:0; background:#fff; padding-top:8px; z-index:5; }
+
+/* Кнопка возврата, если используем внутри .pill (не плавающую) */
+.pill button {
+  margin-left: 8px;
+  padding: 6px 8px;
+  border: 1px solid #d0d7de;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
 }
-/* Плашка Back, появляется по тапу */
-.pill { position: relative; }
+.pill button:active { transform: translateY(1px); }
+
+/* Плавающая плашка Back, которая появляется по тапу */
 .action-back {
   position: absolute;
   right: 8px;
@@ -31,4 +40,21 @@ h1,h2 { margin:0 0 8px 0; }
   box-shadow: 0 2px 8px rgba(0,0,0,.08);
   cursor: pointer;
 }
-.action-back:active { transform: translateY(-48%); }
+.action-back:active { transform: translateY(calc(-50% + 2px)); }
+
+/* Заголовок + счётчик справа */
+.headerRow { display:flex; align-items:center; justify-content:space-between; }
+.countBadge {
+  background:#eef5ff; border-radius:999px; padding:4px 10px; font-weight:600;
+  min-width:28px; text-align:center;
+}
+
+/* Плашка-подсказка */
+.hint p { margin:0; line-height:1.4; font-size:14px; }
+
+/* === Mobile tweaks === */
+@media (max-width:480px){
+  .container { padding:12px; }
+  .pill { padding:12px 14px; min-height:44px; }   /* 44px — удобная зона тапа */
+  select { width:160px; }                          /* компактнее на телефоне */
+}
