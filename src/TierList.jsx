@@ -46,22 +46,18 @@ export default function TierList() {
 
   return (
     <div className="container" onClick={clearActive}>
-      {/* 1) Заголовок */}
+      {/* Заголовок */}
       <h1>❤️ Vitória Tier List</h1>
 
-      {/* 3) Подсказка на английском */}
+      {/* Подсказка на английском */}
       <div className="card hint" onClick={e => e.stopPropagation()}>
         <p><strong>Tip:</strong> To return a word to the Unsorted list, tap the word and then press <b>Back</b>. The tier list is at the bottom of the page.</p>
       </div>
 
-      {/* Блок с неотсортированными */}
+      {/* Неотсортированные с единым заголовком и счётчиком в одной строке */}
       {unassigned.length > 0 && (
         <div className="card" onClick={e => e.stopPropagation()}>
-          {/* 2) Заголовок + счётчик справа */}
-          <div className="headerRow">
-            <h2>Unsorted Nicknames</h2>
-            <span className="countBadge">{unassigned.length}</span>
-          </div>
+          <h2>Unsorted Nicknames - {unassigned.length} {unassigned.length === 1 ? 'word' : 'words'}</h2>
 
           <div>
             {unassigned.map(nick => (
