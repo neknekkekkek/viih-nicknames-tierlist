@@ -56,7 +56,12 @@ select { font-size:16px; padding:8px; width:200px; } /* 16px, чтобы iOS н�
 .hint p { margin:0; line-height:1.4; font-size:14px; }
 
 /* Синие полосы во всю ширину только в блоке Unsorted */
-.unsorted .pill { display:flex; justify-content:space-between; align-items:center; width:100%; }
+.unsorted .pill {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  width: calc(100% - 8px); /* 4px слева + 4px справа — симметрия */
+}
 
 /* === Mobile tweaks === */
 @media (max-width:480px){
