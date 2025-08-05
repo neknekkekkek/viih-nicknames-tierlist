@@ -2,17 +2,17 @@
 import { useState } from 'react';
 
 const initialTiers = {
-  'S-Tier ❤️ (Absolutely love it!)': [],
+  'S-Tier ❤️ (love it, call me that every hour)': [],
   'A-Tier 😍 (Really like it)': [],
   'B-Tier 🤔 (Hmm… maybe)': [],
   'C-Tier 😐 (Too basic or boring)': [],
-  'D-Tier 💀 (CRINGE)': []
+  'D-Tier 💀 (CRINGE|BAN)': []
 };
 
 const allNicknames = [
-  "Strawberry 🍓", "Sweety 🍬", "Sunshine ☀️", "Bunny 🐰", "Ass Queen 🍑👑", "docinho 🍭", "Dear 💌", "Amore ❤️", "Wifey 👰", "Bae 😍",
+  "Strawberry 🍓", "Sweety 🍬", "Sunshine ☀️", "Bunny 🐰", "docinho 🍭", "Dear 💌", "Amore ❤️", "Wifey 👰", "Bae 😍",
   "CTTT (CringeTicTokToxic <3) 📱💅🖤", "bro 👊", "cat food 🐱🍽️", "Shark Smile 🦈😁", "Brat 😈", "pussy 🐱💋", "Right-Wing Cutie 🗳️😇", "Nikita 🔥🇷🇺",
-  "Peanut Baby 🥜👶", "Boobie Queen 👑👙", "Brazilian diplomat 🇧🇷🕴️", "Procrastination Princess 👸🛋️", "Four-Eyed Heartbreaker 🤓💘", "SKALA sponsor 🧴🌀",
+  "Peanut Baby 🥜👶", "Boobie Queen 👑👙", "Ass Queen 🍑👑", "Brazilian diplomat 🇧🇷🕴️", "Procrastination Princess 👸🛋️", "Four-Eyed Heartbreaker 🤓💘", "SKALA sponsor 🧴🌀",
   "Miss Universe Brazil 2026 👑🌎🇧🇷", "Curly from Ceará 💁‍♀️🌴", "Coraçãozinho 💖", "Viih-tamin 💊✨", "Cutie antievangelical 😇❌📿", "Parda (white) trouble 🤍😈" 
 ];
 
@@ -51,7 +51,7 @@ export default function TierList() {
 
       {/* Подсказка на английском */}
       <div className="card hint" onClick={e => e.stopPropagation()}>
-        <p><strong>Tip:</strong> To return a word to the Unsorted list, tap the word and then press <b>Back</b>. The tier list is at the bottom of the page.</p>
+        <p><strong>Tip:</strong> To return a word to the Unsorted list, tap the word and then press <b>Back</b>. The tier list is at the bottom of the page. Ps Take everything you see as a joke, irony/post-irony, local humor - without the goal of insulting, offending, humiliating, or hurting. </p>
       </div>
 
       {/* Неотсортированные: единый заголовок + счётчик в одну строку */}
