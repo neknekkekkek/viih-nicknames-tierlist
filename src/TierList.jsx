@@ -6,7 +6,7 @@ const initialTiers = {
   'A-Tier 😍 (Really like it)': [],
   'B-Tier 🤔 (Hmm… maybe)': [],
   'C-Tier 😐 (Too basic or boring)': [],
-  'D-Tier 💀 (CRINGE|BAN)': []
+  'D-Tier 💀 (CRINGE | BAN)': []
 };
 
 const allNicknames = [
@@ -47,11 +47,11 @@ export default function TierList() {
   return (
     <div className="container" onClick={clearActive}>
       {/* Заголовок */}
-      <h1>❤️ Vitória Tier List</h1>
+      <h1>🤓 Vitória Tier List</h1>
 
       {/* Подсказка на английском */}
       <div className="card hint" onClick={e => e.stopPropagation()}>
-        <p><strong>Tip:</strong> To return a word to the Unsorted list, tap the word and then press <b>Back</b>. The tier list is at the bottom of the page. Ps Take everything you see as a joke, irony/post-irony, local humor - without the goal of insulting, offending, humiliating, or hurting. </p>
+        <p><strong>Tip:</strong> To return a word to the Unsorted list, tap the word and then press <b>Back</b>. The tier list is at the bottom of the page. <b>Ps</b> Take everything you see as a joke, irony/post-irony, local humor - without the goal of insulting, offending, humiliating, or hurting. </p>
       </div>
 
       {/* Неотсортированные: единый заголовок + счётчик в одну строку */}
