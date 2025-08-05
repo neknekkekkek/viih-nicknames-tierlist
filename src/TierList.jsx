@@ -10,10 +10,10 @@ const initialTiers = {
 };
 
 const allNicknames = [
-  "Peanut Baby", "Curly Trouble", "Sunshine", "Right-Wing Cutie", "Amore", "Pillow Fighter", "Princess", "Dear", 
-  "Monkey Mood", "Meu docinho", "Boobie Queen", "Coraçãozinho", "Viih-tamin", "pussy", "Hot Stuff", 
-  "Curly from Ceará", "Cutie", "Sleepy Burrito", "Naughty Girl", "My Strawberry", "Tease Queen", "Snack Doctor", 
-  "Bunny", "Procrastination Princess", "Sweet Pea", "Faz-o-L Queen", "My Little Brat", "Bossy Baby", "Wifey", "Bae" 
+  "Strawberry 🍓", "Sweety 🍬", "Sunshine ☀️", "Bunny 🐰", "Ass Queen 🍑👑", "docinho 🍭", "Dear 💌", "Amore ❤️", "Wifey 👰", "Bae 😍",
+  "CTTT (CringeTicTokToxic <3) 📱💅🖤", "bro 👊", "cat food 🐱🍽️", "Shark Smile 🦈😁", "Brat 😈", "pussy 🐱💋", "Right-Wing Cutie 🗳️😇", "Nikita 🔥🇷🇺",
+  "Peanut Baby 🥜👶", "Boobie Queen 👑👙", "Brazilian diplomat 🇧🇷🕴️", "Procrastination Princess 👸🛋️", "Four-Eyed Heartbreaker 🤓💘", "SKALA sponsor 🧴🌀",
+  "Miss Universe Brazil 2026 👑🌎🇧🇷", "Curly from Ceará 💁‍♀️🌴", "Coraçãozinho 💖", "Viih-tamin 💊✨", "Cutie antievangelical 😇❌📿", "Parda (white) trouble 🤍😈" 
 ];
 
 export default function TierList() {
